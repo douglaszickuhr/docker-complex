@@ -10,10 +10,10 @@ script:
   - docker run -e CI=true douglaszickuhr/docker-test npm test
 
 after_success:
-  - docker build -t douglaszickuhr/multi-client -f ./client
-  - docker build -t douglaszickuhr/multi-nginx -f ./nginx
-  - docker build -t douglaszickuhr/multi-server -f ./server
-  - docker build -t douglaszickuhr/multi-worker -f ./worker
+  - docker build -t douglaszickuhr/multi-client ./client
+  - docker build -t douglaszickuhr/multi-nginx ./nginx
+  - docker build -t douglaszickuhr/multi-server ./server
+  - docker build -t douglaszickuhr/multi-worker ./worker
   # Log in to Docker CLI
   - echo "$docker_password" | docker login -u "docker_user" --password-stdin
   - docker push douglaszickuhr/multi-client
