@@ -15,7 +15,7 @@ after_success:
   - docker build -t douglaszickuhr/multi-server ./server
   - docker build -t douglaszickuhr/multi-worker ./worker
   # Log in to Docker CLI
-  - echo "$docker_password" | docker login -u "docker_user" --password-stdin
+  - echo "$docker_password" | docker login -u "$docker_user" --password-stdin
   - docker push douglaszickuhr/multi-client
   - docker push douglaszickuhr/multi-nginx
   - docker push douglaszickuhr/multi-server
